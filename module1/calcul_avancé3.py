@@ -1,34 +1,27 @@
-# demander à un utilisateur deux nombres, puis afficher leur somme, difference, produit ,divisiones arrondi à2 dec, puissance modulo
+# Ce script demande à l'utilisateur deux nombres et affiche leur somme, différence, produit, puissance, division et modulo.
+# Il gère également l'erreur de division par zéro et les entrées non numériques.
 
 while True:
     try:
-        c=str(input("tape exit pour quitter ou enter pour contunier:"))
+        continuer = input("Tapez 'exit' pour quitter ou appuyez sur Entrée pour continuer : ")
 
-        if c.lower()=="exit":
+        if continuer.lower() == "exit":
             print("fermeture du programme✅")
-            exit()
+            break  # Utilisation de break pour sortir de la boucle
 
-        a=int(input("entrez un nombre:"))
-        b=int(input("entrez encore un nombre:"))
+        a = int(input("Entrez un nombre entier : "))
+        b = int(input("Entrez un autre nombre entier : "))
 
-        if b!=0:
-            print(f"voici l'addition:{a+b}")
-            print(f"voici la soustraction:{a-b}")
-            print(f"voici la multiplication:{a*b}")
-            print(f"voici la puissance:{a**b}")
-            print(f"voici la division:{a/b}")
-            print(f"voici le modulo:{a%b}")
+        print(f"Addition : {a + b}")
+        print(f"Soustraction : {a - b}")
+        print(f"Multiplication : {a * b}")
+        print(f"Puissance : {a ** b}")
+
+        if b != 0:
+            print(f"Division : {a / b:.2f}")  # Division avec 2 décimales
+            print(f"Modulo : {a % b}")
+            break  # Sort de la boucle seulement si les entrées sont valides et la division est possible
         else:
-            print("Erreur:division par zero impossible")
-            print(f"voici l'addition:{a+b}")
-            print(f"voici la soustraction:{a-b}")
-            print(f"voici la multiplication:{a*b}")
-            print(f"voici la puissance:{a**b}")
-
-        break
+            print("Erreur : division par zéro impossible.")
     except ValueError:
-        print("✍️entrez un chifffre ou un nombre👇")
-        
-
-
-
+        print("Erreur : entrée invalide. Veuillez entrer deux nombres entiers.")
